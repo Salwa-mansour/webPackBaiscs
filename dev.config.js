@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode:'development',
     entry:{
-     main:'./src/index.js',
+     main:path.resolve(__dirname,'./src/index.js'),
 
     },
     output:{
@@ -44,8 +44,9 @@ module.exports = {
         static:{
        directory:path.resolve(__dirname,'dist')
       },
+      watchFiles: ['src/**/*.php', 'src/**/*'],
       port:3000,
-      open:true,
+      open:false,
       hot:true,
       compress:true,
       historyApiFallback:true,
@@ -56,8 +57,7 @@ module.exports = {
     plugins:[
       new HtmlWebpackPlugin({
         title:'outpout mannagmengit',
-        template:'./src/index.html',
-      }),
-
+        template:path.resolve(__dirname,'./src/index.html'),
+      })
     ],
 };
